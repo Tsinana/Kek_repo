@@ -50,7 +50,7 @@ namespace Kek
             if (is1type)
             {
                 if (isWhite)
-                    color = "белымыыыыыыыыыыыыыыы";
+                    color = "белымыыыыыыыыыыыыыыыыыыыыыыыыыыы";
                 else
                     color = "черными";
                 template = $"В урне {quantityWhiteBalls} белых и {quantityBlackBalls} черных шаров. Из урны вынимают сразу {quantityTakeBalls} шаров. Найти вероятность того, что {ofThem} из них будут {color}.";
