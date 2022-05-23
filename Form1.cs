@@ -88,8 +88,29 @@ namespace Kek
 
         private void bOk_Click(object sender, EventArgs e)
         {
-            Variant a = new Variant();
-            a.AddTask1();
+            int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
+            //quantity task n
+            List<int> listQTN = new List<int>();
+
+            int qt1 = Convert.ToInt32(numericUpDown1.Value);
+            int qt2 = Convert.ToInt32(numericUpDown2.Value);
+            int qt3 = Convert.ToInt32(numericUpDown3.Value);
+            int qt4 = Convert.ToInt32(numericUpDown4.Value);
+            int qt5 = Convert.ToInt32(numericUpDown5.Value);
+            int qt6 = Convert.ToInt32(numericUpDown6.Value);
+            int qt7 = Convert.ToInt32(numericUpDown7.Value);
+            int qt8 = Convert.ToInt32(numericUpDown8.Value);
+            int qt9 = Convert.ToInt32(numericUpDown9.Value);
+            listQTN.Add(qt1);
+            listQTN.Add(qt2);
+            listQTN.Add(qt3);
+            listQTN.Add(qt4);
+            listQTN.Add(qt5);
+            listQTN.Add(qt6);
+            listQTN.Add(qt7);
+            listQTN.Add(qt8);
+            listQTN.Add(qt9);
+            ListVariant lv = new ListVariant(quantityVariant, listQTN);
         }
     }
 }

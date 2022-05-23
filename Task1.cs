@@ -18,28 +18,26 @@ namespace Kek
         public Task1()
         {
             var rand = new Random();
-            int quBB = rand.Next(4, 12);
+            bool isWhite = Convert.ToBoolean(rand.Next(0, 2));
+            this.isWhite = isWhite;
+            int quBB = rand.Next(4, 11);
             this.quantityBlackBalls = quBB;
-            int quWB = rand.Next(4, 12);
+            int quWB = rand.Next(4, 11);
             this.quantityWhiteBalls = quWB;
             int quAll = quBB + quWB;
             this.quantityAllBalls = quAll;
-            int quT = rand.Next(2, (quAll / 2));
+            int quT = rand.Next(2, (quAll / 2)+1);
             this.quantityTakeBalls = quT;
-            int ofThem = rand.Next(1, (quT - 1));
+            int ofThem = rand.Next(1, quT);
             this.ofThem = ofThem;
-            bool isWhite = Convert.ToBoolean(rand.Next(0, 1));
-            this.isWhite = isWhite;
             double prob;
             if (isWhite)
-                //prob = Sochet(quWB, ofThem) * Sochet(quBB, quT - ofThem) / (Sochet(quAll, quT));
-                prob = Sochet(10, 3) * Sochet(5, 0) / (Sochet(15, 3));
+                prob = Sochet(quWB, ofThem) * Sochet(quBB, quT - ofThem) / (Sochet(quAll, quT));
             else
-                //prob = Sochet(quBB, ofThem) * Sochet(quWB, quT - ofThem) / (Sochet(quAll, quT));
-                prob = Sochet(10, 3) * Sochet(5, 0) / (Sochet(2, 1));
+                prob = Sochet(quBB, ofThem) * Sochet(quWB, quT - ofThem) / (Sochet(quAll, quT));
             this.probability = Math.Round(prob, 4);
 
-            bool is1type = Convert.ToBoolean(rand.Next(0, 1));
+            bool is1type = Convert.ToBoolean(rand.Next(0, 2));
             string template;
             string color = "";
             if (is1type)
@@ -58,9 +56,9 @@ namespace Kek
             this.template = template;
         }
 
-        private int Factorial(int a)
+        private long Factorial(int a)
         {
-            int result;
+            long result;
             if (a == 0) return 1;
             else
             {
@@ -69,8 +67,8 @@ namespace Kek
             }
 
         }
-        //
-        private double Sochet(int a, int b)
+
+        private long Sochet(int a, int b)
         {
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
         }
