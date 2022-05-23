@@ -7,13 +7,6 @@ namespace Kek
     public class Variant
     {
         private List<int> listQTN { get; set; }
-      
-        private int QuantityTask1 = -1;
-        private int QuantityTask2 = -1;
-        private int QuantityTast3 = -1;
-        private int QuantityTask4 = -1;
-        private int QuantityTast5 = -1;
-
 
         private List<Task1> ListTask1 { get; set; }
         private List<Task2> ListTask2 { get; set; }
