@@ -7,14 +7,14 @@ namespace Kek
     public class Variant
     {
         private List<int> listQTN { get; set; }
+      
         private int QuantityTask1 = -1;
         private int QuantityTask2 = -1;
-        //...
-        //private int QuantityTask9 = -1;
+        private int QuantityTast3 = -1; 
+
         private List<Task1> ListTask1 { get; set; }
         private List<Task2> ListTask2 { get; set; }
-        //...
-        //private List<Task9> ListTask9 { get; set; }
+        private List<Tast3> ListTast3 { get; set; }
 
         public Variant(List<int> listQTN)
         {
@@ -38,8 +38,16 @@ namespace Kek
             }
             this.ListTask2 = ListTask2;
 
-            //...
-            //ListTask9 = new List<Task9>();
+            List<Tast3> ListTast3 = new List<Tast3>();
+            this.listQTN = listQTN;
+            int count3 = listQTN[2];
+            for (int i = 0; i < count3; i++)
+            {
+                Tast3 t = new Tast3(i);
+                ListTast3.Add(t);
+            }
+            this.ListTast3 = ListTast3;
+
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-
 namespace Kek
 {
     public partial class Form1 : Form
