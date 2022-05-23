@@ -19,23 +19,26 @@ namespace Kek
         {
             var rand = new Random();
 
-            bool isWhite = Convert.ToBoolean(rand.Next(0, 2));
-            this.isWhite = isWhite;
-            int quantityAllBalls = rand.Next(9, 25);
-            this.quantityAllBalls = quantityAllBalls;
-            int quantityWhiteBalls = rand.Next(4, quantityAllBalls - 4);
-            this.quantityWhiteBalls = quantityWhiteBalls;
-            this.quantityBlackBalls = quantityAllBalls- quantityWhiteBalls;
+            
+            this.quantityAllBalls = rand.Next(9, 21);//всего шаров
+            this.quantityWhiteBalls = rand.Next(3, quantityAllBalls - 3);//белых
+            this.quantityBlackBalls = quantityAllBalls - quantityWhiteBalls;//черных
+               
+            if (quantityWhiteBalls > quantityBlackBalls)
+            {
 
-            int quantityTakeBalls = rand.Next(4, quantityAllBalls);//Всего взяли
-            this.quantityTakeBalls = quantityTakeBalls;
-
-            int ofThem;//Из них
-            if (isWhite)
-                ofThem = rand.Next(4, quantityTakeBalls);
+                this.ofThem = rand.Next(3, quantityBlackBalls);//из них
+                this.isWhite = false;
+                this.quantityTakeBalls = rand.Next(quantityBlackBalls, quantityWhiteBalls);
+            }
             else
-                ofThem = rand.Next(4, quantityTakeBalls);
-            this.ofThem = ofThem;
+            {
+                this.ofThem = rand.Next(3, quantityWhiteBalls);
+                this.isWhite = true;
+                this.quantityTakeBalls = rand.Next(quantityWhiteBalls, quantityBlackBalls);
+            }
+            
+
 
             double probability;
             if (isWhite)
@@ -75,7 +78,7 @@ namespace Kek
 
         }
 
-        private long Sochet(int a, int b)
+        private double Sochet(int a, int b)
         {
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
         }
