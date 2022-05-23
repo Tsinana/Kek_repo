@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Kek
 {
-    class Task5
+    class Task4
     {
-        public Task5()
+        public Task4()
         {
             var rand = new Random();
             int n = rand.Next(150, 201);
