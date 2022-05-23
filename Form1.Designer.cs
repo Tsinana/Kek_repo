@@ -156,6 +156,7 @@ namespace Kek
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(115, 23);
             this.textBox.TabIndex = 9;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label5
             // 
@@ -350,6 +351,7 @@ namespace Kek
             this.bOk.TabIndex = 32;
             this.bOk.Text = "Ok";
             this.bOk.UseVisualStyleBackColor = false;
+            this.bOk.Click += new System.EventHandler(this.bOk_Click);
             // 
             // bReset
             // 
@@ -360,6 +362,7 @@ namespace Kek
             this.bReset.TabIndex = 33;
             this.bReset.Text = "Reset";
             this.bReset.UseVisualStyleBackColor = false;
+            this.bReset.Click += new System.EventHandler(this.bReset_Click);
             // 
             // Form1
             // 
