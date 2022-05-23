@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,11 +11,14 @@ namespace Kek
         private int QuantityTask1 = -1;
         private int QuantityTask2 = -1;
         private int QuantityTast3 = -1;
+        private int QuantityTask4 = -1;
         private int QuantityTast5 = -1;
+
 
         private List<Task1> ListTask1 { get; set; }
         private List<Task2> ListTask2 { get; set; }
         private List<Tast3> ListTast3 { get; set; }
+        private List<Task4> ListTask4 { get; set; }
         private List<Task5> ListTask5 { get; set; }
 
         public Variant(List<int> listQTN)
@@ -50,6 +53,16 @@ namespace Kek
             }
             this.ListTast3 = ListTast3;
 
+            List<Task4> ListTask4 = new List<Task4>();
+            this.listQTN = listQTN;
+            int count4 = listQTN[3];
+            for (int i = 0; i < count1; i++)
+            {
+                Task4 t = new Task4();
+                ListTask4.Add(t);
+            }
+            this.ListTask4 = ListTask4;
+          
             List<Task5> ListTask5 = new List<Task5>();
             this.listQTN = listQTN;
             int count5 = listQTN[4];
@@ -59,7 +72,6 @@ namespace Kek
                 ListTask5.Add(t);
             }
             this.ListTask5 = ListTask5;
-
         }
     }
 }
