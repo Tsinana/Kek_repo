@@ -13,33 +13,38 @@ namespace Kek
         private int quantityTakeBalls;//
         private int ofThem;//
         private bool isWhite;//
-        private double probability;
+        private double probabilityability;
 
         public Task1()
         {
             var rand = new Random();
-            int quBB = rand.Next(4, 12);
-            this.quantityBlackBalls = quBB;
-            int quWB = rand.Next(4, 12);
-            this.quantityWhiteBalls = quWB;
-            int quAll = quBB + quWB;
-            this.quantityAllBalls = quAll;
-            int quT = rand.Next(2, (quAll / 2));
-            this.quantityTakeBalls = quT;
-            int ofThem = rand.Next(1, (quT - 1));
-            this.ofThem = ofThem;
-            bool isWhite = Convert.ToBoolean(rand.Next(0, 1));
-            this.isWhite = isWhite;
-            double prob;
-            if (isWhite)
-                //prob = Sochet(quWB, ofThem) * Sochet(quBB, quT - ofThem) / (Sochet(quAll, quT));
-                prob = Sochet(10, 3) * Sochet(5, 0) / (Sochet(15, 3));
-            else
-                //prob = Sochet(quBB, ofThem) * Sochet(quWB, quT - ofThem) / (Sochet(quAll, quT));
-                prob = Sochet(10, 3) * Sochet(5, 0) / (Sochet(2, 1));
-            this.probability = Math.Round(prob, 4);
 
-            bool is1type = Convert.ToBoolean(rand.Next(0, 1));
+            bool isWhite = Convert.ToBoolean(rand.Next(0, 2));
+            this.isWhite = isWhite;
+            int quantityAllBalls = rand.Next(9, 25);
+            this.quantityAllBalls = quantityAllBalls;
+            int quantityWhiteBalls = rand.Next(4, quantityAllBalls - 4);
+            this.quantityWhiteBalls = quantityWhiteBalls;
+            this.quantityBlackBalls = quantityAllBalls- quantityWhiteBalls;
+
+            int quantityTakeBalls = rand.Next(4, quantityAllBalls);//Всего взяли
+            this.quantityTakeBalls = quantityTakeBalls;
+
+            int ofThem;//Из них
+            if (isWhite)
+                ofThem = rand.Next(4, quantityTakeBalls);
+            else
+                ofThem = rand.Next(4, quantityTakeBalls);
+            this.ofThem = ofThem;
+
+            double probability;
+            if (isWhite)
+                probability = Sochet(quantityWhiteBalls, ofThem) * Sochet(quantityBlackBalls, quantityTakeBalls - ofThem) / (Sochet(quantityAllBalls, quantityTakeBalls));
+            else
+                probability = Sochet(quantityBlackBalls, ofThem) * Sochet(quantityWhiteBalls, quantityTakeBalls - ofThem) / (Sochet(quantityAllBalls, quantityTakeBalls));
+            this.probabilityability = Math.Round(probability, 4);
+
+            bool is1type = Convert.ToBoolean(rand.Next(0, 2));
             string template;
             string color = "";
             if (is1type)
@@ -48,19 +53,19 @@ namespace Kek
                     color = "белыми";
                 else
                     color = "черными";
-                template = $"В урне {quWB} белых и {quBB} черных шаров. Из урны вынимают сразу {quT} шаров. Найти вероятность того, что {ofThem} из них будут {color}.";
+                template = $"В урне {quantityWhiteBalls} белых и {quantityBlackBalls} черных шаров. Из урны вынимают сразу {quantityTakeBalls} шаров. Найти вероятность того, что {ofThem} из них будут {color}.";
             }
             else
                 if (isWhite)
-                template = $"В группе {quAll} человек, {quWB} из которых успевающие. По списку вызывают сразу {quT} человек. Найти вероятность того, что {ofThem} из них будут успевающими.";
+                template = $"В группе {quantityAllBalls} человек, {quantityWhiteBalls} из которых успевающие. По списку вызывают сразу {quantityTakeBalls} человек. Найти вероятность того, что {ofThem} из них будут успевающими.";
             else
-                template = $"В группе {quAll} человек, {quBB} из которых неуспевающие. По списку вызывают сразу {quT} человек. Найти вероятность того, что {ofThem} из них будут неуспевающими.";
+                template = $"В группе {quantityAllBalls} человек, {quantityBlackBalls} из которых неуспевающие. По списку вызывают сразу {quantityTakeBalls} человек. Найти вероятность того, что {ofThem} из них будут неуспевающими.";
             this.template = template;
         }
 
-        private int Factorial(int a)
+        private long Factorial(int a)
         {
-            int result;
+            long result;
             if (a == 0) return 1;
             else
             {
@@ -69,8 +74,8 @@ namespace Kek
             }
 
         }
-        //
-        private double Sochet(int a, int b)
+
+        private long Sochet(int a, int b)
         {
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
         }
