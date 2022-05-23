@@ -69,7 +69,7 @@ namespace Kek
             }
 
         }
-
+        //
         private double Sochet(int a, int b)
         {
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
