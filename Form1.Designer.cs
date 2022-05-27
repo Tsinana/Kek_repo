@@ -63,6 +63,7 @@ namespace Kek
             this.label12 = new System.Windows.Forms.Label();
             this.bOk = new System.Windows.Forms.Button();
             this.bReset = new System.Windows.Forms.Button();
+            this.checkBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nQuantityVar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -93,7 +94,7 @@ namespace Kek
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(118, 123);
+            this.numericUpDown1.Location = new System.Drawing.Point(118, 136);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown1.TabIndex = 3;
@@ -101,7 +102,7 @@ namespace Kek
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 93);
+            this.label2.Location = new System.Drawing.Point(12, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 2;
@@ -110,7 +111,7 @@ namespace Kek
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 125);
+            this.label3.Location = new System.Drawing.Point(12, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 15);
             this.label3.TabIndex = 4;
@@ -119,7 +120,7 @@ namespace Kek
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 154);
+            this.label4.Location = new System.Drawing.Point(12, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 15);
             this.label4.TabIndex = 5;
@@ -127,14 +128,14 @@ namespace Kek
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(118, 152);
+            this.numericUpDown2.Location = new System.Drawing.Point(118, 165);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown2.TabIndex = 6;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(191, 121);
+            this.button1.Location = new System.Drawing.Point(191, 134);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(17, 23);
             this.button1.TabIndex = 7;
@@ -143,7 +144,7 @@ namespace Kek
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(191, 150);
+            this.button2.Location = new System.Drawing.Point(191, 163);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(17, 23);
             this.button2.TabIndex = 8;
@@ -169,7 +170,7 @@ namespace Kek
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(191, 179);
+            this.button3.Location = new System.Drawing.Point(191, 192);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(17, 23);
             this.button3.TabIndex = 16;
@@ -178,7 +179,7 @@ namespace Kek
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(191, 210);
+            this.button4.Location = new System.Drawing.Point(191, 223);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(17, 23);
             this.button4.TabIndex = 15;
@@ -187,7 +188,7 @@ namespace Kek
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(118, 210);
+            this.numericUpDown4.Location = new System.Drawing.Point(118, 223);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown4.TabIndex = 14;
@@ -195,7 +196,7 @@ namespace Kek
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 212);
+            this.label6.Location = new System.Drawing.Point(12, 225);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 15);
             this.label6.TabIndex = 13;
@@ -204,7 +205,7 @@ namespace Kek
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 183);
+            this.label7.Location = new System.Drawing.Point(12, 196);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 15);
             this.label7.TabIndex = 12;
@@ -212,14 +213,14 @@ namespace Kek
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(118, 181);
+            this.numericUpDown3.Location = new System.Drawing.Point(118, 194);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown3.TabIndex = 11;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(191, 239);
+            this.button5.Location = new System.Drawing.Point(191, 252);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(17, 23);
             this.button5.TabIndex = 22;
@@ -228,7 +229,7 @@ namespace Kek
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(191, 268);
+            this.button6.Location = new System.Drawing.Point(191, 281);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(17, 23);
             this.button6.TabIndex = 21;
@@ -237,7 +238,7 @@ namespace Kek
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(118, 268);
+            this.numericUpDown6.Location = new System.Drawing.Point(118, 281);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown6.TabIndex = 20;
@@ -245,7 +246,7 @@ namespace Kek
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 270);
+            this.label8.Location = new System.Drawing.Point(12, 283);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 15);
             this.label8.TabIndex = 19;
@@ -254,7 +255,7 @@ namespace Kek
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 241);
+            this.label9.Location = new System.Drawing.Point(12, 254);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 15);
             this.label9.TabIndex = 18;
@@ -262,14 +263,14 @@ namespace Kek
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(118, 239);
+            this.numericUpDown5.Location = new System.Drawing.Point(118, 252);
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown5.TabIndex = 17;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(191, 297);
+            this.button7.Location = new System.Drawing.Point(191, 310);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(17, 23);
             this.button7.TabIndex = 28;
@@ -278,7 +279,7 @@ namespace Kek
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(191, 326);
+            this.button8.Location = new System.Drawing.Point(191, 339);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(17, 23);
             this.button8.TabIndex = 27;
@@ -287,7 +288,7 @@ namespace Kek
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(118, 326);
+            this.numericUpDown8.Location = new System.Drawing.Point(118, 339);
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown8.TabIndex = 26;
@@ -295,7 +296,7 @@ namespace Kek
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 328);
+            this.label10.Location = new System.Drawing.Point(12, 341);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 15);
             this.label10.TabIndex = 25;
@@ -304,7 +305,7 @@ namespace Kek
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 299);
+            this.label11.Location = new System.Drawing.Point(12, 312);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 15);
             this.label11.TabIndex = 24;
@@ -312,14 +313,14 @@ namespace Kek
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(118, 297);
+            this.numericUpDown7.Location = new System.Drawing.Point(118, 310);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown7.TabIndex = 23;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(191, 355);
+            this.button9.Location = new System.Drawing.Point(191, 368);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(17, 23);
             this.button9.TabIndex = 31;
@@ -328,7 +329,7 @@ namespace Kek
             // 
             // numericUpDown9
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(118, 355);
+            this.numericUpDown9.Location = new System.Drawing.Point(118, 368);
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown9.TabIndex = 30;
@@ -336,7 +337,7 @@ namespace Kek
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 357);
+            this.label12.Location = new System.Drawing.Point(12, 370);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 15);
             this.label12.TabIndex = 29;
@@ -364,11 +365,22 @@ namespace Kek
             this.bReset.UseVisualStyleBackColor = false;
             this.bReset.Click += new System.EventHandler(this.bReset_Click);
             // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.Location = new System.Drawing.Point(12, 79);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(141, 19);
+            this.checkBox.TabIndex = 34;
+            this.checkBox.Text = "именовать варианты";
+            this.checkBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(225, 450);
+            this.Controls.Add(this.checkBox);
             this.Controls.Add(this.bReset);
             this.Controls.Add(this.bOk);
             this.Controls.Add(this.button9);
@@ -456,6 +468,7 @@ namespace Kek
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button bOk;
         private System.Windows.Forms.Button bReset;
+        private System.Windows.Forms.CheckBox checkBox;
     }
 }
 
