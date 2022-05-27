@@ -6,6 +6,7 @@ namespace Kek
 {
     public class Variant
     {
+        private string name { get; set; }
         private List<int> listQTN { get; set; }
 
         private List<Task1> ListTask1 { get; set; }
@@ -13,9 +14,14 @@ namespace Kek
         private List<Tast3> ListTast3 { get; set; }
         private List<Task4> ListTask4 { get; set; }
         private List<Task5> ListTask5 { get; set; }
+        //private List<Task6> ListTask6 { get; set; }
+        //private List<Tast7> ListTast7 { get; set; }
+        //private List<Task8> ListTask8 { get; set; }
+        //private List<Task9> ListTask9 { get; set; }
 
-        public Variant(List<int> listQTN)
+        public Variant(List<int> listQTN,string name)
         {
+            this.name = name;
             this.listQTN = listQTN;
 
             List<Task1> ListTask1 = new List<Task1>();

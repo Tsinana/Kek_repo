@@ -88,9 +88,33 @@ namespace Kek
         private void bOk_Click(object sender, EventArgs e)
         {
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
-            //quantity task n
-            List<int> listQTN = new List<int>();
+            Data data = new Data();
+            List<string> listQTNVarName = new List<string>();
 
+            if (checkBox.Checked)
+            {
+                Nominate t = new Nominate(quantityVariant,data);
+                t.ShowDialog();
+                string str = data.GetValue();
+                Regex myReg = new Regex("([а-я]+)");
+                MatchCollection matches = myReg.Matches(str);
+                foreach (Match m in matches)
+                {
+                    string name = m.Value;
+                    listQTNVarName.Add(name);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < quantityVariant; i++)
+                {
+                    string name = Convert.ToString(i);
+                    listQTNVarName.Add(name);
+                }
+            }
+
+
+            List<int> listQTN = new List<int>();
             int qt1 = Convert.ToInt32(numericUpDown1.Value);
             int qt2 = Convert.ToInt32(numericUpDown2.Value);
             int qt3 = Convert.ToInt32(numericUpDown3.Value);
@@ -109,7 +133,8 @@ namespace Kek
             listQTN.Add(qt7);
             listQTN.Add(qt8);
             listQTN.Add(qt9);
-            ListVariant lv = new ListVariant(quantityVariant, listQTN);
+
+            ListVariant lv = new ListVariant(quantityVariant, listQTN, listQTNVarName);
         }
     }
 }
