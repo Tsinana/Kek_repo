@@ -14,7 +14,7 @@ namespace Kek
         private List<Tast3> ListTast3 { get; set; }
         private List<Task4> ListTask4 { get; set; }
         private List<Task5> ListTask5 { get; set; }
-        private List<Task6> ListTask6 { get; set; }
+        private List<Task6> ListTask6 { get; set; }    //вывод вормулы 
         private List<Task7> ListTask7 { get; set; }
         private List<Task8> ListTask8 { get; set; }
         private List<Task9> ListTask9 { get; set; }
@@ -43,7 +43,6 @@ namespace Kek
             this.ListTask2 = ListTask2;
 
             List<Tast3> ListTast3 = new List<Tast3>();
-            this.listQTN = listQTN;
             int count3 = listQTN[2];
             for (int i = 0; i < count3; i++)
             {
@@ -53,7 +52,6 @@ namespace Kek
             this.ListTast3 = ListTast3;
 
             List<Task4> ListTask4 = new List<Task4>();
-            this.listQTN = listQTN;
             int count4 = listQTN[3];
             for (int i = 0; i < count4; i++)
             {
@@ -63,7 +61,6 @@ namespace Kek
             this.ListTask4 = ListTask4;
           
             List<Task5> ListTask5 = new List<Task5>();
-            this.listQTN = listQTN;
             int count5 = listQTN[4];
             for (int i = 0; i < count5; i++)
             {
@@ -73,9 +70,8 @@ namespace Kek
             this.ListTask5 = ListTask5;
 
             List<Task6> ListTask6 = new List<Task6>();
-            this.listQTN = listQTN;
             int count6 = listQTN[5];
-            for (int i = 0; i < count5; i++)
+            for (int i = 0; i < count6; i++)
             {
                 Task6 t = new Task6();
                 ListTask6.Add(t);
@@ -83,7 +79,6 @@ namespace Kek
             this.ListTask6 = ListTask6;
 
             List<Task7> ListTask7 = new List<Task7>();
-            this.listQTN = listQTN;
             int count7 = listQTN[6];
             for (int i = 0; i < count7; i++)
             {
@@ -93,7 +88,6 @@ namespace Kek
             this.ListTask7 = ListTask7;
 
             List<Task8> ListTask8 = new List<Task8>();
-            this.listQTN = listQTN;
             int count8 = listQTN[7];
             for (int i = 0; i < count8; i++)
             {
@@ -103,7 +97,6 @@ namespace Kek
             this.ListTask8 = ListTask8;
 
             List<Task9> ListTask9 = new List<Task9>();
-            this.listQTN = listQTN;
             int count9 = listQTN[8];
             for (int i = 0; i < count9; i++)
             {
