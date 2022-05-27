@@ -44,7 +44,7 @@ namespace Kek
         {
             var rand = new Random();
             int choiceFunc = rand.Next(1, 4);
-            int aFrom 
+            //int aFrom 
         }
 
     }
