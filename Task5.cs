@@ -6,7 +6,7 @@ namespace Kek
 {
     class Task5
     {
-        private string template { get; set; }//answer
+        private string template { get; set; }//print
         private int n;//
         private double p;//
         private double q;
