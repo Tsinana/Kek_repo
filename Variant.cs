@@ -15,7 +15,7 @@ namespace Kek
         private List<Task4> ListTask4 { get; set; }
         private List<Task5> ListTask5 { get; set; }
         private List<Task6> ListTask6 { get; set; }    //вывод вормулы 
-        private List<Task7> ListTask7 { get; set; }
+        private List<Task7> ListTask7 { get; set; }    // в звдвче присутствуют спец символы
         private List<Task8> ListTask8 { get; set; }
         private List<Task9> ListTask9 { get; set; }
 
