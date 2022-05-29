@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
@@ -120,12 +118,12 @@ namespace Kek
                 value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
                 idx++;
             }
-            /*
-            foreach (Taså3 a in ListTask3)
+
+            foreach (Tast3 a in ListTast3)
             {
-                value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
                 idx++;
-            }*/
+            }
 
             foreach (Task4 a in ListTask4)
             {
@@ -151,12 +149,12 @@ namespace Kek
                 idx++;
             }
 
-            /*foreach (Task8 a in ListTask8)
+            foreach (Task8 a in ListTask8)
             {
                 value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
                 idx++;
             }
-
+            /*
             foreach (Task9 a in ListTask9)
             {
                 value = value + "          " +idx + ". " + a.GetValue() + "\n\n";

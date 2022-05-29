@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
+
 namespace Kek
 {
     class Tast3
@@ -13,7 +13,10 @@ namespace Kek
         private double p;
         private double q;
 
-
+        public string GetValue()
+        {
+            return template;
+        }
 
         public Tast3(int a)
         {
@@ -56,6 +59,7 @@ namespace Kek
                 template = $"Событие В произойдет в случае, если событие А наступит не менее {k} раз. Найти вероятность наступления события B, если будет произведено {n} независимых испытаний, в каждом из которых вероятность наступления события А равна {p}.";
             this.template = template;
         }
+
         private long Factorial(int a)
         {
             long result;
@@ -71,6 +75,5 @@ namespace Kek
         {
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
         }
-
     }
 }

@@ -94,7 +94,7 @@ namespace Kek
             int bTo = aFrom + rand.Next(1, 3);
             this.aFrom = aFrom;
             this.bTo = bTo;
-            int y1; int y3; int y4; int y2;
+            int y1=0; int y3=0; int y4=0; int y2=0;
             int a=0; int n = 10000;
             double width; double trapezoidal_integral;
             switch (choiceFunc)
@@ -189,7 +189,33 @@ namespace Kek
                     break;
             }
             this.a = a;
-            this.template = "Задана плотность распределения случайной величины !!! Найти параметр А, интегральную функцию распределения, математическое ожидание, дисперсию и среднее квадратическое отклонение.";
+
+            template = "Задана плотность распределения случайной величины";
+            char bracket1 = Convert.ToChar(9136);
+            char bracket2 = Convert.ToChar(9137);
+            char smallor = Convert.ToChar(8804);
+            string strF1="";
+            string strF2 = "";
+            string strF3 = "";
+            char degree2 = Convert.ToChar(178);
+            char degree3 = Convert.ToChar(179);
+            char umn = Convert.ToChar(8729);
+            switch (choiceFunc)
+            {
+                case (1):
+                     strF1 = $"f(x) = {bracket1} 0,\t x {smallor}, {aFrom}\tx > {bTo}";
+                     strF2 = $"\t{bracket2} x{degree3}{umn}{y1}+x{degree2}{umn}A+x{umn}{y3}+{y4}\t{aFrom} < x {smallor} {bTo}";
+                    break;
+                case (2):
+                    strF1 = $"f(x) = {bracket1} 0,\t x {smallor}, {aFrom}\tx > {bTo}";
+                    strF2 = $"\t{bracket2} A/(x{degree2}{umn}{y2})\t{aFrom} < x {smallor} {bTo}";
+                    break;
+                case (3):
+                    strF1 = $"f(x) = {bracket1} 0,\t x {smallor}, {aFrom}\tx > {bTo}";
+                    strF2 = $"\t{bracket2} A/(x{umn}{y2})\t{aFrom} < x {smallor} {bTo}";
+                    break;
+            }
+            template = template + "\n" + strF1 + "\n" + strF2 + "\n" + strF3 + "\n" + "Найти параметр А, интегральную функцию распределения, математическое ожидание, дисперсию и среднее квадратическое отклонение.";
         }
     }
 }
