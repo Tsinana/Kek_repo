@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
 
 
@@ -163,12 +164,15 @@ namespace Kek
                 Close();
             }
         }
-
+        
         private void saveText(ListVariant lv)
         {
-            //string title = folderTestTB.Text + @"\Варианты.docx";
+            int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
             Word.Document doc = _app.Documents.Add();
             List<Variant> listVar = lv.GetListVar();
+
+            doc.Paragraphs.Add();
+            doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak);
 
             foreach (Variant version in listVar)
             {
@@ -186,10 +190,28 @@ namespace Kek
             }
 
 
+
             doc.Save();
             //doc.SaveAs2();
             doc.Close();
             _app.Quit();
+
+            Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
+            ex.Visible = false;
+
+            Excel.Workbook workBook = ex.Workbooks.Add();
+            Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j < 9; j++)
+                    sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
+            }
+
+            workBook.Save();
+            workBook.Close();
+
+            ex.Quit();
+            
 
         }
     }
