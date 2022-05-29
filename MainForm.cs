@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Text.RegularExpressions;
@@ -150,14 +151,12 @@ namespace Kek
 
                 ListVariant lv = new ListVariant(quantityVariant, listQTN, listQTNVarName);
 
-                //далее вывод 
-
                 saveText(lv);
-
-                //code
-
                 _app.Quit();
-                //_applyToAll = false;
+
+                Finish t1 = new Finish();
+                t1.ShowDialog();
+                Close();
             }
             catch
             {
@@ -170,22 +169,14 @@ namespace Kek
             //string title = folderTestTB.Text + @"\Варианты.docx";
             Word.Document doc = _app.Documents.Add();
             List<Variant> listVar = lv.GetListVar();
-            int p = 0;
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
+
             foreach (Variant version in listVar)
             {
-                p++;
-                doc.Paragraphs.Last.Range.InsertParagraphBefore();
-
-                doc.Paragraphs.Last.Range.Text = "finger ass"; // выгрузили в ворд
-                doc.Paragraphs.Last.Range.InsertParagraphBefore(); 
-                doc.Paragraphs.Last.Range.InsertBefore("Dear Sirs,");
-                doc.Paragraphs.Last.Range.Text = "finger ass";
+                doc.Paragraphs.Last.Range.Text = version.GetSomething();
+                doc.Paragraphs.Add();
                 doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
+
+
             }
             //устанавливаем для всего текста шрифт, размер и т.д.
             for (int i = 1; i <= doc.Paragraphs.Count; ++i)
