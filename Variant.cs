@@ -8,7 +8,6 @@ namespace Kek
     {
         private string name { get; set; }
         private List<int> listQTN { get; set; }
-
         private List<Task1> ListTask1 { get; set; }
         private List<Task2> ListTask2 { get; set; }
         private List<Tast3> ListTast3 { get; set; }
@@ -104,6 +103,10 @@ namespace Kek
                 ListTask9.Add(t);
             }
             this.ListTask9 = ListTask9;
+        }
+        public string GetSomething()
+        {
+            return name;
         }
     }
 }

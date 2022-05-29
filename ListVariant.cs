@@ -10,6 +10,7 @@ namespace Kek
         private List<int> listQTN { get; set; }
         private List<Variant> ListVar { get; set; }
         private List<string> listQTNVarName { get; set; }
+
         public ListVariant(int QuantityVariant, List<int> listQTN, List<string> listQTNVarName)
         {
             this.QuantityVariant = QuantityVariant;
@@ -23,6 +24,11 @@ namespace Kek
                 ListVar.Add(t);
             }
             this.ListVar = ListVar;
+        }
+
+        public List<Variant> GetListVar()
+        {
+            return ListVar;
         }
     }
 }
