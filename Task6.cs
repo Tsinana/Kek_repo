@@ -12,6 +12,11 @@ namespace Kek
         private int aFrom;//print
         private int bTo;//print
 
+        public string GetValue()
+        {
+            return template;
+        }
+
         private double func1(double x,int y1,int a, int y3, int y4)
         {
             return x * x * x * y1 + x * x * a + x * y3 + y4;

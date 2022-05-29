@@ -5,12 +5,16 @@ namespace Kek
 {
     class Tast3
     {
+        private string template { get; set; }
         private bool Bilet;
         private int n;
         private int k;
         private double P;
         private double p;
         private double q;
+
+
+
         public Tast3(int a)
         {
             var rand = new Random();

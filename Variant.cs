@@ -111,10 +111,59 @@ namespace Kek
 
             foreach (Task1 a in ListTask1)
             {
-                value = value + idx+". " +a.GetValue() + "\n\n";
+                value = value + "          " + idx+". " +a.GetValue() + "\n\n";
                 idx++;
             }
-                return value;
+
+            foreach (Task2 a in ListTask2)
+            {
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+            /*
+            foreach (Taså3 a in ListTask3)
+            {
+                value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }*/
+
+            foreach (Task4 a in ListTask4)
+            {
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+
+            foreach (Task5 a in ListTask5)
+            {
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+
+            foreach (Task6 a in ListTask6)
+            {
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+
+            foreach (Task7 a in ListTask7)
+            {
+                value = value + "          " + idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+
+            /*foreach (Task8 a in ListTask8)
+            {
+                value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+
+            foreach (Task9 a in ListTask9)
+            {
+                value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
+                idx++;
+            }
+            */
+            return value;
         }
     }
 }

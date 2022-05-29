@@ -20,6 +20,12 @@ namespace Kek
         private double fullP;
         private double who;//
         private double Probability;
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Task2()
         {
             var rand = new Random();
