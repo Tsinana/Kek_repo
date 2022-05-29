@@ -117,6 +117,7 @@ namespace Kek
                 nI = nI + $"{aN}\t|";
             }
             template = template + "\n" + xI + "\n" + nI;
+            //1. a) vib_sr б) vib_sr_sq 2. lev_gran < Тут целое, которое определяет студент < prav_gran 3. nabl_znach предположительно 
         }
     }
 }
