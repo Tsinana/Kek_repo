@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
 
 namespace Kek
@@ -157,9 +158,11 @@ namespace Kek
                 Close();
             }*/
         }
-
+        
         private void saveText(ListVariant lv)
         {
+            int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
+            
             try
             {
                 //string title = folderTestTB.Text + @"\Варианты.docx";
@@ -185,14 +188,29 @@ namespace Kek
 
 
                 doc.Save();
-                //doc.SaveAs2();
                 doc.Close();
                 _app.Quit();
+
+                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
+                ex.Visible = false;
+
+                Excel.Workbook workBook = ex.Workbooks.Add();
+                Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+                for (int i = 1; i <= 9; i++)
+                {
+                    for (int j = 1; j < 9; j++)
+                        sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
+                }
+
+                workBook.Save();
+                workBook.Close();
+
+                ex.Quit();
             }
-            catch
-            {
-                Close();
-            }
+                catch
+                {
+                    Close();
+                }
         }
     }
 }
