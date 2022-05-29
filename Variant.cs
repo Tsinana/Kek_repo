@@ -102,6 +102,22 @@ namespace Kek
             }
             this.ListTask9 = ListTask9;
         }
+        public List<string> GetAnsValue()
+        {
+            List<string> listStr = new List<string>();
+
+
+            foreach (Task1 a in ListTask1)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            //...
+
+
+            return listStr;
+        }
         public string GetValue()
         {
             string value = "Вариант " + name + "\n\n";
