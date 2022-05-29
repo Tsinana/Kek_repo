@@ -193,10 +193,26 @@ namespace Kek
                 doc.Close();
                 _app.Quit();
 
-                Excel.Workbook workBook = ex.Workbooks.Add();
+                foreach (Variant version in listVar)
+                {
+                    string name = version.GetName();
+                    List<string> listStr = version.GetAnsValue();
+                    foreach (string str in listStr)
+                    {
+
+                    }
+                }
+
+
+                    Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+
+
+
+
                 for (int i = 1; i <= 9; i++)
                 {
+                    
                     for (int j = 1; j < 9; j++)
                         sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
                 }

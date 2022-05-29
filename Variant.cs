@@ -11,8 +11,8 @@ namespace Kek
         private List<Tast3> ListTast3 { get; set; }
         private List<Task4> ListTask4 { get; set; }
         private List<Task5> ListTask5 { get; set; }
-        private List<Task6> ListTask6 { get; set; }    //вывод вормулы 
-        private List<Task7> ListTask7 { get; set; }    // в звдвче присутствуют спец символы
+        private List<Task6> ListTask6 { get; set; } 
+        private List<Task7> ListTask7 { get; set; }
         private List<Task8> ListTask8 { get; set; }
         private List<Task9> ListTask9 { get; set; }
 
@@ -102,6 +102,13 @@ namespace Kek
             }
             this.ListTask9 = ListTask9;
         }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+
         public List<string> GetAnsValue()
         {
             List<string> listStr = new List<string>();
@@ -118,6 +125,7 @@ namespace Kek
 
             return listStr;
         }
+
         public string GetValue()
         {
             string value = "Вариант " + name + "\n\n";
