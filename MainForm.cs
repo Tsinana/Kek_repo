@@ -111,7 +111,7 @@ namespace Kek
                     Nominate t = new Nominate(quantityVariant, data);
                     t.ShowDialog();
                     string str = data.GetValue();
-                    Regex myReg = new Regex("([а-я]+)");
+                    Regex myReg = new Regex("([А-Я]*[а-я]*[a-z]*[A-Z]*)");
                     MatchCollection matches = myReg.Matches(str);
                     foreach (Match m in matches)
                     {
@@ -121,7 +121,7 @@ namespace Kek
                 }
                 else
                 {
-                    for (int i = 0; i < quantityVariant; i++)
+                    for (int i = 1; i <= quantityVariant; i++)
                     {
                         string name = Convert.ToString(i);
                         listQTNVarName.Add(name);
@@ -172,17 +172,19 @@ namespace Kek
 
             foreach (Variant version in listVar)
             {
-                doc.Paragraphs.Last.Range.Text = version.GetSomething();
+                doc.Paragraphs.Last.Range.Text = version.GetValue();
                 doc.Paragraphs.Add();
                 doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
-
-
             }
+
             //устанавливаем для всего текста шрифт, размер и т.д.
             for (int i = 1; i <= doc.Paragraphs.Count; ++i)
             {
                 doc.Paragraphs[i].Range.Font.Name = "Times New Roman";
-                doc.Paragraphs[i].Range.Font.Size = 12;
+                doc.Paragraphs[i].Range.Font.Size = 14;
+                doc.Paragraphs[i].Range.Paragraphs.TabIndent(-1);
+                doc.Paragraphs[i].Range.Paragraphs.SpaceBefore = 0;
+                doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
             }
 
 
