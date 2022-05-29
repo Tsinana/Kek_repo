@@ -11,15 +11,15 @@ namespace Kek
     {
 
         private Word.Application _app;
-        private Excel.Application ex;
+        //private Excel.Application ex;
 
         public MainForm()
         {
             InitializeComponent();
             _app = new Word.Application();
             _app.Visible = false;
-            Excel.Application ex = new Excel.Application();
-            ex.Visible = false;
+            //Excel.Application ex = new Excel.Application();
+            //ex.Visible = false;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -165,9 +165,8 @@ namespace Kek
         {
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
             
-            try
-            {
-                //string title = folderTestTB.Text + @"\Варианты.docx";
+            //try
+            //{
                 Word.Document doc = _app.Documents.Add();
                 List<Variant> listVar = lv.GetListVar();
 
@@ -193,14 +192,16 @@ namespace Kek
                 doc.Close();
                 _app.Quit();
 
+                Excel.Application ex = new Excel.Application();
+                ex.Visible = false;
                 Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
 
-                int ii = 0;
-                int jj = 0;
+                int ii = 1;
+                int jj = 1;
                 foreach (Variant version in listVar)
                 {
-                    jj = 0;
+                    jj = 1;
                     string name = version.GetName();
                     List<string> listStr = version.GetAnsValue();
                     foreach (string str in listStr)
@@ -213,13 +214,12 @@ namespace Kek
 
                 workBook.Save();
                 workBook.Close();
-
                 ex.Quit();
-            }
+            /*}
                 catch
                 {
                     Close();
-                }
+                }*/
         }
     }
 }
