@@ -10,13 +10,16 @@ namespace Kek
     public partial class MainForm : Form
     {
 
-        private Microsoft.Office.Interop.Word.Application _app;
+        private Word.Application _app;
+        private Excel.Application ex;
 
         public MainForm()
         {
             InitializeComponent();
-            _app = new Microsoft.Office.Interop.Word.Application();
+            _app = new Word.Application();
             _app.Visible = false;
+            Excel.Application ex = new Excel.Application();
+            ex.Visible = false;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -147,7 +150,6 @@ namespace Kek
                 ListVariant lv = new ListVariant(quantityVariant, listQTN, listQTNVarName);
 
                 saveText(lv);
-                _app.Quit();
 
                 Finish t1 = new Finish();
                 t1.ShowDialog();
@@ -186,13 +188,10 @@ namespace Kek
                     doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
                 }
 
-
-                doc.Save();
+                
+                doc.Save();// =(
                 doc.Close();
                 _app.Quit();
-
-                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
-                ex.Visible = false;
 
                 Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);

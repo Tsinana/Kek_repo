@@ -13,7 +13,12 @@ namespace Kek
         private int quantityTakeBalls;//
         private int ofThem;//
         private bool isWhite;//
-        private double probabilityability;//ans
+        private double probabilityability;//ans//ща в тл з
+
+        public string GetAnsValue()
+        {
+            return Convert.ToString(probabilityability);
+        }
 
         public string GetValue()
         {
