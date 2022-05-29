@@ -199,7 +199,7 @@ namespace Kek
             r_bb = Math.Abs(r_bb);
             double perv = sum_N * x_be * y_be;
             double vtor = sum_N * vib_sr_x * vib_sr_y;
-            r_bb = (r_bb - perv) / vtor;
+            r_bb =Math.Round((r_bb - perv) / vtor,4);
             //подставляем в формулу значения y_be,r_bb,vib_sr_y,vib_sr_x,x_be
             string template;
             template = $"Найти выборочное уравнение прямой тут формула епт  регрессии Y на Х по данной корреляционной таблице:";
