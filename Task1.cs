@@ -6,14 +6,20 @@ namespace Kek
 {
     public class Task1
     {
-        private string template;
+        private string template;//print
         private int quantityBlackBalls;//
         private int quantityWhiteBalls;//
         private int quantityAllBalls;
         private int quantityTakeBalls;//
         private int ofThem;//
         private bool isWhite;//
-        private double probabilityability;
+        private double probabilityability;//ans
+
+        public string GetValue()
+        {
+            return template;
+        }
+
 
         public Task1()
         {

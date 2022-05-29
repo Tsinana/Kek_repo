@@ -14,6 +14,12 @@ namespace Kek
         private double dX;//answer
         private int[] arrX;//answer
         private double[] arrP;//answer
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Task5()
         {
             var rand = new Random();

@@ -12,6 +12,9 @@ namespace Kek
         private double P;
         private double p;
         private double q;
+
+
+
         public Tast3(int a)
         {
             var rand = new Random();
