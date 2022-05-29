@@ -147,7 +147,6 @@ namespace Kek
                 ListVariant lv = new ListVariant(quantityVariant, listQTN, listQTNVarName);
 
                 saveText(lv);
-                _app.Quit();
 
                 Finish t1 = new Finish();
                 t1.ShowDialog();
@@ -202,6 +201,7 @@ namespace Kek
                         sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
                 }
 
+                //workBook.Save();
                 workBook.Save();
                 workBook.Close();
 
