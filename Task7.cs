@@ -12,6 +12,12 @@ namespace Kek
         private int a;//print
         private int b;//print
         private int siG;//print
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Task7()
         {
             var rand = new Random();

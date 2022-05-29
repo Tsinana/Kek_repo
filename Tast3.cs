@@ -1,16 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
+
 namespace Kek
 {
     class Tast3
     {
+        private string template { get; set; }
         private bool Bilet;
         private int n;
         private int k;
         private double P;
         private double p;
         private double q;
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Tast3(int a)
         {
             var rand = new Random();
@@ -46,7 +53,13 @@ namespace Kek
                 P += Sochet(n, k) * Math.Pow(p, k) * Math.Pow(q, (n - k));
             }
             this.P = Math.Round(P, 4);
+            if (Bilet == true)
+                template = $"Вероятность выиграть по лотерейному билету равна {p} . Найти вероятность выиграть по {k} билетам из {n}.";
+            else
+                template = $"Событие В произойдет в случае, если событие А наступит не менее {k} раз. Найти вероятность наступления события B, если будет произведено {n} независимых испытаний, в каждом из которых вероятность наступления события А равна {p}.";
+            this.template = template;
         }
+
         private long Factorial(int a)
         {
             long result;

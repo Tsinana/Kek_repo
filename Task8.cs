@@ -1,11 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
     class Task8
     {
+        private string template { get; set; }
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Task8()
         {
             int n = 7;
@@ -96,6 +101,22 @@ namespace Kek
                 nabl_znach += (Math.Pow((N[i] - Nuu), 2) / Nuu);//часть ответа
                 //из таблицы как-то берется критические значения, если nabl_znach<krit_znach, то гипотезу принимают, иначе нет, не понял как с таблицей работать
             }
+            char aa = Convert.ToChar(945);
+            char gamma = Convert.ToChar(947);
+            string xI = "|  xi   |";
+            string nI = "|  ni   |";
+            template = $"Дано статистическое распределение выборки: в первой строке указаны выборочные варианты хi, а во второй строке – соответственные частоты ni количественного признака Х). Требуется найти:\n1.Методом произведений: а) выборочную среднюю; б) выборочное среднее квадратическое отклонение;\n2.Доверительные интервалы для оценки неизвестного математического ожидания а с заданной надежностью {gamma} = 0,95.\n3.Пользуясь критерием Пирсона, при уровне значимости {aa} = 0,05, установить, согласуется ли гипотеза о нормальном распределении генеральной совокупности с данными выборки объема n = {sum_N}:";
+            foreach (int aX in x)
+            {
+                //xI = xI + $"{aX,7:G}|";
+                xI = xI + $"{aX}\t|";
+            }
+            foreach (int aN in N)
+            {
+                //nI = nI + $"{aN,7:G}|";
+                nI = nI + $"{aN}\t|";
+            }
+            template = template + "\n" + xI + "\n" + nI;
         }
     }
 }

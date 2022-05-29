@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
@@ -20,6 +18,12 @@ namespace Kek
         private double fullP;
         private double who;//
         private double Probability;
+
+        public string GetValue()
+        {
+            return template;
+        }
+
         public Task2()
         {
             var rand = new Random();
@@ -69,7 +73,7 @@ namespace Kek
             string template;
             bool tackType = Convert.ToBoolean(rand.Next(0, 2));
             if (tackType)
-                template = $"В корзине 3 сорта яблок: {y1} – первого, {y2} – второго и {y3} – третьего. Вероятности высокого содержания сахара в каждом из них соответственно равны {yp1}, {yp2}, {yp3}.Наудачу взятое яблоко оказалось с высоким содержанием сахара.Найти, вероятность того, что это яблоко {who} сорта";
+                template = $"В корзине 3 сорта яблок: {y1} – первого, {y2} – второго и {y3} – третьего. Вероятности высокого содержания сахара в каждом из них соответственно равны {yp1}, {yp2}, {yp3}. Наудачу взятое яблоко оказалось с высоким содержанием сахара. Найти, вероятность того, что это яблоко {who} сорта";
             else
                 template = $"Трое рабочих изготавливают однотипные изделия. Первый изготовил {y1} изделий, {y2} – второй и {y3} – третий. Вероятности брака у каждого рабочего соответственно равны {yp1}, {yp2}, {yp3}. Найти вероятность того, что наудачу взятая бракованная деталь изготовлена {who} рабочим.";
             this.template = template;

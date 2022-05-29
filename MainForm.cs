@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
-
 
 namespace Kek
 {
@@ -101,8 +95,8 @@ namespace Kek
 
         private void bOk_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
                 Data data = new Data();
                 List<string> listQTNVarName = new List<string>();
@@ -112,7 +106,7 @@ namespace Kek
                     Nominate t = new Nominate(quantityVariant, data);
                     t.ShowDialog();
                     string str = data.GetValue();
-                    Regex myReg = new Regex("([а-я]+)");
+                    Regex myReg = new Regex("([А-Я]*[а-я]*[a-z]*[A-Z]*)");
                     MatchCollection matches = myReg.Matches(str);
                     foreach (Match m in matches)
                     {
@@ -122,7 +116,7 @@ namespace Kek
                 }
                 else
                 {
-                    for (int i = 0; i < quantityVariant; i++)
+                    for (int i = 1; i <= quantityVariant; i++)
                     {
                         string name = Convert.ToString(i);
                         listQTNVarName.Add(name);
@@ -158,61 +152,65 @@ namespace Kek
                 Finish t1 = new Finish();
                 t1.ShowDialog();
                 Close();
-            }
-            catch
+            //}
+            /*catch
             {
                 Close();
-            }
+            }*/
         }
         
         private void saveText(ListVariant lv)
         {
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
-            Word.Document doc = _app.Documents.Add();
-            List<Variant> listVar = lv.GetListVar();
-
-            doc.Paragraphs.Add();
-            doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak);
-
-            foreach (Variant version in listVar)
-            {
-                doc.Paragraphs.Last.Range.Text = version.GetSomething();
-                doc.Paragraphs.Add();
-                doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
-
-
-            }
-            //устанавливаем для всего текста шрифт, размер и т.д.
-            for (int i = 1; i <= doc.Paragraphs.Count; ++i)
-            {
-                doc.Paragraphs[i].Range.Font.Name = "Times New Roman";
-                doc.Paragraphs[i].Range.Font.Size = 12;
-            }
-
-
-
-            doc.Save();
-            //doc.SaveAs2();
-            doc.Close();
-            _app.Quit();
-
-            Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
-            ex.Visible = false;
-
-            Excel.Workbook workBook = ex.Workbooks.Add();
-            Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
-            for (int i = 1; i <= 9; i++)
-            {
-                for (int j = 1; j < 9; j++)
-                    sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
-            }
-
-            workBook.Save();
-            workBook.Close();
-
-            ex.Quit();
             
+            try
+            {
+                //string title = folderTestTB.Text + @"\Варианты.docx";
+                Word.Document doc = _app.Documents.Add();
+                List<Variant> listVar = lv.GetListVar();
 
+                foreach (Variant version in listVar)
+                {
+                    doc.Paragraphs.Last.Range.Text = version.GetValue();
+                    doc.Paragraphs.Add();
+                    doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
+                }
+
+                //устанавливаем для всего текста шрифт, размер и т.д.
+                for (int i = 1; i <= doc.Paragraphs.Count; ++i)
+                {
+                    doc.Paragraphs[i].Range.Font.Name = "Times New Roman";
+                    doc.Paragraphs[i].Range.Font.Size = 14;
+                    doc.Paragraphs[i].Range.Paragraphs.TabIndent(-1);
+                    doc.Paragraphs[i].Range.Paragraphs.SpaceBefore = 0;
+                    doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
+                }
+
+
+                doc.Save();
+                doc.Close();
+                _app.Quit();
+
+                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
+                ex.Visible = false;
+
+                Excel.Workbook workBook = ex.Workbooks.Add();
+                Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+                for (int i = 1; i <= 9; i++)
+                {
+                    for (int j = 1; j < 9; j++)
+                        sheet.Cells[i, j] = String.Format("Boom {0} {1}", i, j);
+                }
+
+                workBook.Save();
+                workBook.Close();
+
+                ex.Quit();
+            }
+                catch
+                {
+                    Close();
+                }
         }
     }
 }
