@@ -171,21 +171,12 @@ namespace Kek
             Word.Document doc = _app.Documents.Add();
             List<Variant> listVar = lv.GetListVar();
             int p = 0;
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
-            doc.Paragraphs.Last.Range.Text = "finger ass";
             foreach (Variant version in listVar)
             {
                 p++;
-                doc.Paragraphs.Last.Range.InsertParagraphBefore();
-
                 doc.Paragraphs.Last.Range.Text = "finger ass"; // выгрузили в ворд
-                doc.Paragraphs.Last.Range.InsertParagraphBefore(); 
-                doc.Paragraphs.Last.Range.InsertBefore("Dear Sirs,");
-                doc.Paragraphs.Last.Range.Text = "finger ass";
-                doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
+                doc.Paragraphs.Last.Range.InsertParagraph();
+                //doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
             }
             //устанавливаем для всего текста шрифт, размер и т.д.
             for (int i = 1; i <= doc.Paragraphs.Count; ++i)
