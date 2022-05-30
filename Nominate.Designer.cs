@@ -116,7 +116,7 @@ namespace Kek
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label1);
             this.Name = "Nominate";
-            this.Text = "Form2";
+            this.Text = "Маркировака";
             this.ResumeLayout(false);
             this.PerformLayout();
 
