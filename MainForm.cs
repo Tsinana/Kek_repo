@@ -162,8 +162,8 @@ namespace Kek
         {
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
             
-            try
-            {
+            //try
+           // {
                 //string title = folderTestTB.Text + @"\Варианты.docx";
                 Word.Document doc = _app.Documents.Add();
                 List<Variant> listVar = lv.GetListVar();
@@ -185,11 +185,15 @@ namespace Kek
                     doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
                 }
 
-                
+                string a = doc.FullName;
                 doc.Save();// =(
-                doc.Close();
+            //см ниже
+                string a2 = doc.FullName;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+               //см выше
+            doc.Close();
                 _app.Quit();
 
+                
                 Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
                 ex.Visible = false;
 
@@ -228,11 +232,11 @@ namespace Kek
                 workBook.Close();
 
                 ex.Quit();
-            }
-                catch
-                {
-                    Close();
-                }
+            //}
+               // catch
+                //{
+//Close();
+                //}
         }
     }
 }
