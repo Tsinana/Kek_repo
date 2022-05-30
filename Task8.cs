@@ -105,20 +105,18 @@ namespace Kek
             double prav_gran = vib_sr + Stud * (vib_sr_sq / Math.Sqrt(n));//ответ - целое между ними
             this.lev_gran = lev_gran;
             this.prav_gran = prav_gran;
-            double toch = Stud * (vib_sr_sq / Math.Sqrt(n));//точность оценки
+            _ = Stud * (vib_sr_sq / Math.Sqrt(n));//точность оценки
             double u;
             double Fi;
             double h = 0.2;
-            double Nuu = 0;
             double nabl_znach = 0;
             for (int i = 0; i < n; i++)
             {
                 u = (x[i] - vib_sr) / vib_sr_sq;
                 Fi = Math.Exp((-Math.Pow(u, 2)) / 2) / Math.Sqrt(2 * Math.PI);
-                Nuu = ((sum_N * h) / vib_sr_sq) * Fi;
+                double Nuu = ((sum_N * h) / vib_sr_sq) * Fi;
                 nabl_znach += (Math.Pow((N[i] - Nuu), 2) / Nuu);//часть ответа
                 this.nabl_znach = nabl_znach;
-                
             }
             char aa = Convert.ToChar(945);
             char gamma = Convert.ToChar(947);
@@ -127,16 +125,13 @@ namespace Kek
             template = $"Дано статистическое распределение выборки: в первой строке указаны выборочные варианты хi, а во второй строке – соответственные частоты ni количественного признака Х). Требуется найти:\n1.Методом произведений: а) выборочную среднюю; б) выборочное среднее квадратическое отклонение;\n2.Доверительные интервалы для оценки неизвестного математического ожидания а с заданной надежностью {gamma} = 0,95.\n3.Пользуясь критерием Пирсона, при уровне значимости {aa} = 0,05, установить, согласуется ли гипотеза о нормальном распределении генеральной совокупности с данными выборки объема n = {sum_N}:";
             foreach (int aX in x)
             {
-                //xI = xI + $"{aX,7:G}|";
-                xI = xI + $"{aX}\t|";
+                xI += $"{aX}\t|";
             }
             foreach (int aN in N)
             {
-                //nI = nI + $"{aN,7:G}|";
-                nI = nI + $"{aN}\t|";
+                nI += $"{aN}\t|";
             }
             template = template + "\n" + xI + "\n" + nI;
-            //1. a) vib_sr б) vib_sr_sq 2. lev_gran < Тут целое, которое определяет студент < prav_gran 3. nabl_znach предположительно 
         }
     }
 }

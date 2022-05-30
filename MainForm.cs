@@ -16,12 +16,13 @@ namespace Kek
         public MainForm()
         {
             InitializeComponent();
-            _app = new Word.Application();
-            _app.Visible = false;
-
+            _app = new Word.Application
+            {
+                Visible = false
+            };
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
             string string_textBox = textBox.Text;
             Regex myReg0 = new Regex("([0-9] *- *[0-9])");  // 5-9 ||  1  -  5
@@ -80,7 +81,7 @@ namespace Kek
             }
         }
 
-        private void bReset_Click(object sender, EventArgs e)
+        private void BReset_Click(object sender, EventArgs e)
         {
             numericUpDown1.Value = 0;
             numericUpDown2.Value = 0;
@@ -95,10 +96,10 @@ namespace Kek
             textBox.Clear();
         }
 
-        private void bOk_Click(object sender, EventArgs e)
+        private void BOk_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
                 Data data = new Data();
                 List<string> listQTNVarName = new List<string>();
@@ -125,7 +126,6 @@ namespace Kek
                     }
                 }
 
-
                 List<int> listQTN = new List<int>();
                 int qt1 = Convert.ToInt32(numericUpDown1.Value);
                 int qt2 = Convert.ToInt32(numericUpDown2.Value);
@@ -148,26 +148,24 @@ namespace Kek
 
                 ListVariant lv = new ListVariant(quantityVariant, listQTN, listQTNVarName);
 
-                saveText(lv);
+                SaveText(lv);
 
                 Finish t1 = new Finish();
                 t1.ShowDialog();
                 Close();
-            //}
-            /*catch
+            }
+            catch
             {
                 Close();
-            }*/
+            }
         }
-        
-        private void saveText(ListVariant lv)
+
+        private void SaveText(ListVariant lv)
         {
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
-            
-            //try
-           // {
-                //string title = folderTestTB.Text + @"\Варианты.docx";
-            //{
+
+            try
+            {
                 Word.Document doc = _app.Documents.Add();
                 List<Variant> listVar = lv.GetListVar();
 
@@ -175,7 +173,7 @@ namespace Kek
                 {
                     doc.Paragraphs.Last.Range.Text = version.GetValue();
                     doc.Paragraphs.Add();
-                    doc.Paragraphs.Last.Range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak); //разрыв между страницами
+                    doc.Paragraphs.Last.Range.InsertBreak(Word.WdBreakType.wdPageBreak); //разрыв между страницами
                 }
 
                 //устанавливаем для всего текста шрифт, размер и т.д.
@@ -188,17 +186,16 @@ namespace Kek
                     doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
                 }
 
-                doc.Save();// =(
-            //см ниже
-                string a2 = doc.FullName;   
+                doc.Save();
+                string a2 = doc.FullName;
                 string b2 = doc.Name;
-            //см выше
-               doc.Close();
+                doc.Close();
                 _app.Quit();
 
-                
-                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
-                ex.Visible = false;
+                Excel.Application ex = new Excel.Application
+                {
+                    Visible = false
+                };
 
                 Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
@@ -210,17 +207,16 @@ namespace Kek
                 int forDD = listVar[0].GetAnsValue().Count;
                 for (int i = 1; i <= forDD; i++)
                 {
-                    sheet.Cells[1, jj+1] = String.Format(Convert.ToString("Задание "+jj));
+                    sheet.Cells[1, jj + 1] = String.Format(Convert.ToString("Задание " + jj));
                     jj++;
                 }
-
 
                 foreach (Variant version in listVar)
                 {
                     List<string> listStr = version.GetAnsValue();
 
                     string name = version.GetName();
-                    sheet.Cells[ii, 1] = String.Format("Вариант "+name);
+                    sheet.Cells[ii, 1] = String.Format("Вариант " + name);
 
                     jj = 2;
                     foreach (string str in listStr)
@@ -229,26 +225,20 @@ namespace Kek
                         jj++;
                     }
                     ii++;
-                
                 }
-                string a=a2.Replace(b2, "");
-                string b = b2.Replace(".docx","");
+                string a = a2.Replace(b2, "");
+                string b = b2.Replace(".docx", "");
 
-                ex.Application.ActiveWorkbook.SaveAs(a + b+".XLSX", Type.Missing,
+                ex.Application.ActiveWorkbook.SaveAs(a + b + ".XLSX", Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 workBook.Close();
                 ex.Quit();
-            //}
-               // catch
-                //{
-//Close();
-                //}
-            /*}
-                catch
-                {
-                    Close();
-                }*/
+            }
+            catch
+            {
+                Close();
+            }
         }
     }
 }

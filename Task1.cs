@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
@@ -13,7 +11,7 @@ namespace Kek
         private int quantityTakeBalls;//
         private int ofThem;//
         private bool isWhite;//
-        private double probabilityability;//ans//ща в тл з
+        private double probabilityability;//ans
 
         public string GetAnsValue()
         {
@@ -25,19 +23,16 @@ namespace Kek
             return template;
         }
 
-
         public Task1()
         {
             var rand = new Random();
 
-            
             this.quantityAllBalls = rand.Next(9, 21);//всего шаров
             this.quantityWhiteBalls = rand.Next(3, quantityAllBalls - 3);//белых
             this.quantityBlackBalls = quantityAllBalls - quantityWhiteBalls;//черных
                
             if (quantityWhiteBalls > quantityBlackBalls)
             {
-
                 this.ofThem = rand.Next(3, quantityBlackBalls);//из них
                 this.isWhite = false;
                 this.quantityTakeBalls = rand.Next(quantityBlackBalls, quantityWhiteBalls);
@@ -48,8 +43,6 @@ namespace Kek
                 this.isWhite = true;
                 this.quantityTakeBalls = rand.Next(quantityWhiteBalls, quantityBlackBalls);
             }
-            
-
 
             double probability;
             if (isWhite)
@@ -60,9 +53,9 @@ namespace Kek
 
             bool is1type = Convert.ToBoolean(rand.Next(0, 2));
             string template;
-            string color = "";
             if (is1type)
             {
+                string color;
                 if (isWhite)
                     color = "белыми";
                 else
@@ -86,7 +79,6 @@ namespace Kek
                 result = a * Factorial(a - 1);
                 return result;
             }
-
         }
 
         private double Sochet(int a, int b)
@@ -94,5 +86,4 @@ namespace Kek
             return Factorial(a) / (Factorial(a - b) * Factorial(b));
         }
     }
-
 }

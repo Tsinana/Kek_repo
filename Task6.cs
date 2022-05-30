@@ -22,74 +22,31 @@ namespace Kek
             return template;
         }
 
-        private double func1(double x,double y1,double a, double y3, double y4)
-        {
-            return x * x * x * y1 + x * x * a + x * y3 + y4;
-        }
-        private double func1x(double x, double y1, double a, double y3, double y4)
+        private double Func1x(double x, double y1, double a, double y3, double y4)
         {
             return (x * x * x * y1 + x * x * a + x * y3 + y4)*x;
         }
-        private double func1xx(double x, double y1, double a, double y3, double y4)
+        private double Func1xx(double x, double y1, double a, double y3, double y4)
         {
             return (x * x * x * y1 + x * x * a + x * y3 + y4)*x*x;
         }
 
-        private double func2(double x,double a, double y2)
-        {
-            return a/(x * x * y2);
-        }
-        private double func2x(double x, double a, double y2)
+        private double Func2x(double x, double a, double y2)
         {
             return (a / (x * x * y2))*x;
         }
-        private double func2xx(double x, double a, double y2)
+        private double Func2xx(double x, double a, double y2)
         {
             return (a / (x * x * y2))*x*x;
         }
-
-        private double func3(double x, double a, double y2 )
-        {
-            return a / (x * y2);
-        }
-        private double func3x(double x, double a, double y2)
+        private double Func3x(double x, double a, double y2)
         {
             return (a / (x * y2))*x;
         }
-        private double func3xx(double x, double a, double y2)
+        private double Func3xx(double x, double a, double y2)
         {
             return (a / (x * y2))*x*x;
         }
-
-        private double trapezoidaldoubleegral(double a, double b, double n, Func<double, double> f)
-        {
-            double width = (b - a) / n;
-            double trapezoidal_doubleegral = 0;
-            for (double step = 0; step < n; step++)
-            {
-                double x1 = a + step * width;
-                double x2 = a + (step + 1) * width;
-
-                trapezoidal_doubleegral += 0.5 * (x2 - x1) * (f(x1) + f(x2));
-            }
-            return trapezoidal_doubleegral;
-        }
-
-       /* double Runge(double a, double b, double n0, double eps, Func<double, double> f)
-        {
-            double n = n0;
-            double F1 = trapezoidaldoubleegral(a, b, n, f);
-            double F2 = trapezoidaldoubleegral(a, b, 2 * n, f);
-            double diff = F2 - F1;
-            while (Math.Abs(diff) >= eps)
-            {
-                n = 2 * n;
-                F1 = trapezoidaldoubleegral(a, b, n, f);
-                F2 = trapezoidaldoubleegral(a, b, 2 * n, f);
-                diff = F2 - F1;
-            }
-            return n;
-        }*/
 
         public Task6()
         {
@@ -118,7 +75,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func1x(x1, y1, a, y3, y4) + func1x(x2, y1, a, y3, y4));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func1x(x1, y1, a, y3, y4) + Func1x(x2, y1, a, y3, y4));
                     }
                     this.mX = trapezoidal_doubleegral;
 
@@ -129,7 +86,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func1xx(x1, y1, a, y3, y4) + func1xx(x2, y1, a, y3, y4));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func1xx(x1, y1, a, y3, y4) + Func1xx(x2, y1, a, y3, y4));
                     }
                     this.dX = trapezoidal_doubleegral;
 
@@ -147,7 +104,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func2x(x1,a, y2) + func2x(x1, a, y2));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func2x(x1,a, y2) + Func2x(x1, a, y2));
                     }
                     this.mX = trapezoidal_doubleegral;
 
@@ -158,7 +115,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func2xx(x1, a, y2) + func2xx(x1, a, y2));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func2xx(x1, a, y2) + Func2xx(x1, a, y2));
                     }
                     this.dX = trapezoidal_doubleegral;
 
@@ -176,7 +133,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func3x(x1, a, y2) + func3x(x1, a, y2));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func3x(x1, a, y2) + Func3x(x1, a, y2));
                     }
                     this.mX = trapezoidal_doubleegral;
 
@@ -187,7 +144,7 @@ namespace Kek
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 
-                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (func3xx(x1, a, y2) + func3xx(x1, a, y2));
+                        trapezoidal_doubleegral += 0.5 * (x2 - x1) * (Func3xx(x1, a, y2) + Func3xx(x1, a, y2));
                     }
                     this.dX = trapezoidal_doubleegral;
 

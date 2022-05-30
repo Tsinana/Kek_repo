@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -27,12 +22,12 @@ namespace Kek
             labelFail.Text = "";
         }
         
-        private void bReset_Click(object sender, EventArgs e)
+        private void BReset_Click(object sender, EventArgs e)
         {
             textBox.Clear();
         }
 
-        private void bOk_Click(object sender, EventArgs e)
+        private void BOk_Click(object sender, EventArgs e)
         {
             string strFromBox = textBox.Text;
 
@@ -53,7 +48,6 @@ namespace Kek
                 {
                     labelFail.Text = "Не все варианты промаркированы ";
                 }
-
             }
             else
             {
