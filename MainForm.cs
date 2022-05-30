@@ -232,10 +232,11 @@ namespace Kek
                 
                 }
             string a=a2.Replace(b2, "");
-            //workBook.SaveAs(a+"answer.xml");
-            ex.Application.ActiveWorkbook.SaveAs(a + "answ.XLSX", Type.Missing,
-Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
-Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            string b = b2.Replace(".docx","");
+
+            ex.Application.ActiveWorkbook.SaveAs(a + b+".XLSX", Type.Missing,
+            Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
+            Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             workBook.Close();
                 ex.Quit();
             //}
