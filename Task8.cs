@@ -5,10 +5,16 @@ namespace Kek
     class Task8
     {
         private string template { get; set; }
-
+        private double vib_sr;
+        private double vib_sr_sq;
+        private double lev_gran;
+        private double prav_gran;
+        private double nabl_znach;
         public string GetAnsValue()
         {
-            return "";
+            char chi = Convert.ToChar(935);
+            char men = Convert.ToChar(60);
+            return $"1.a){vib_sr} б) {vib_sr_sq} 2. {lev_gran}{men}m{men}{prav_gran} 3.{chi}наблюдаемое = {nabl_znach}";
         }
         public string GetValue()
         {
@@ -81,6 +87,7 @@ namespace Kek
                 sum_N += N[i];
             }
             vib_sr /= sum_N;//ответ
+            this.vib_sr = vib_sr;
             double vib_disp = 0;
             for (int i = 0; i < n; i++)
             {
@@ -88,9 +95,12 @@ namespace Kek
             }
             vib_disp = (vib_disp / sum_N) - Math.Pow(vib_sr, 2);
             double vib_sr_sq = Math.Sqrt(vib_disp);//ответ
+            this.vib_sr_sq = vib_sr_sq;
             double Stud = 1.943;
             double lev_gran = vib_sr - Stud * (vib_sr_sq / Math.Sqrt(n));
             double prav_gran = vib_sr + Stud * (vib_sr_sq / Math.Sqrt(n));//ответ - целое между ними
+            this.lev_gran = lev_gran;
+            this.prav_gran = prav_gran;
             double toch = Stud * (vib_sr_sq / Math.Sqrt(n));//точность оценки
             double u;
             double Fi;
@@ -103,6 +113,7 @@ namespace Kek
                 Fi = Math.Exp((-Math.Pow(u, 2)) / 2) / Math.Sqrt(2 * Math.PI);
                 Nuu = ((sum_N * h) / vib_sr_sq) * Fi;
                 nabl_znach += (Math.Pow((N[i] - Nuu), 2) / Nuu);//часть ответа
+                this.nabl_znach = nabl_znach;
                 
             }
             char aa = Convert.ToChar(945);

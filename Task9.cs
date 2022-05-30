@@ -7,10 +7,14 @@ namespace Kek
     class Task9
     {
         private string template;
-
+        private double y_be;
+        private double r_bb;
+        private double vib_sr_y;
+        private double vib_sr_x;
+        private double x_be;
         public string GetAnsValue()
         {
-            return "";
+            return $"y{(char)8339}-{y_be} = {r_bb}*{vib_sr_y}(y)/{vib_sr_x}(x)*(x-{x_be})";
         }
         public string GetValue()
         {
@@ -176,13 +180,15 @@ namespace Kek
                 x_be += x[i] * N_iksovoe[i];
                 sum_N += N_iksovoe[i];
             }
-            x_be /= sum_N;
+            x_be /= sum_N; 
+            this.x_be = x_be;
             double y_be = 0;
             for (int i = 0; i < n-1; i++)
             {
                 y_be += Y[i] * N_igrikovoe[i];
             }
             y_be /= sum_N;
+            this.y_be = y_be;
             double vib_disp_x = 0;
             for (int i = 0; i < n; i++)
             {
@@ -190,6 +196,7 @@ namespace Kek
             }
             vib_disp_x = (vib_disp_x / sum_N) - Math.Pow(x_be, 2);
             double vib_sr_x = Math.Sqrt(vib_disp_x);
+            this.vib_sr_x = vib_sr_x;
             double vib_disp_y = 0;
             for (int i = 0; i < n - 1; i++)
             {
@@ -197,6 +204,7 @@ namespace Kek
             }
             vib_disp_y = (vib_disp_y / sum_N) - Math.Pow(y_be, 2);
             double vib_sr_y = Math.Sqrt(vib_disp_y);
+            this.vib_sr_y = vib_sr_y;
             double r_bb = 0;
             for (int i = 0; i < n - 1; i++)
             {
@@ -206,12 +214,13 @@ namespace Kek
                 }
             }
             r_bb = Math.Abs(r_bb);
+            this.r_bb = r_bb;
             double perv = sum_N * x_be * y_be;
             double vtor = sum_N * vib_sr_x * vib_sr_y;
             r_bb =Math.Round((r_bb - perv) / vtor,4);
             //подставляем в формулу значения y_be,r_bb,vib_sr_y,vib_sr_x,x_be
             string template;
-            template = $"Найти выборочное уравнение прямой тут формула епт  регрессии Y на Х по данной корреляционной таблице:";
+            template = $"Найти выборочное уравнение прямой y{(char)8339}-{(char)375} = r(b)*{(char)1005}(y)/{(char)1005}(x)*(x-{(char)7819})  регрессии Y на Х по данной корреляционной таблице:";
             this.template = template;
         }
     }
