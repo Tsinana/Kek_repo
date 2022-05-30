@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
@@ -14,7 +12,10 @@ namespace Kek
         private double dX;//answer
         private int[] arrX;//answer
         private double[] arrP;//answer
-
+        public string GetAnsValue()
+        {
+            return Convert.ToString($"M(x) = {mX}, D(x) = {dX}");
+        }
         public string GetValue()
         {
             return template;
@@ -39,8 +40,9 @@ namespace Kek
                 arrX[i] = i;
                 arrP[i] = Sochet(n,i)*Math.Pow(p,i)* Math.Pow(p, n-i);
             }
-            double mX = n * p;
-            double dX = n * p * q;
+            mX = Math.Round(n * p,4);
+            dX = Math.Round(n * p * q,4);
+
             bool tackType = Convert.ToBoolean(rand.Next(0, 2));
             if (tackType)
                 template = $"Имеются {n} базы с независимым снабжением. Вероятность отсутствия на базе нужного товара равна {p}. Предприниматель решил закупить некий товар. Составить закон распределения числа баз, на которых в данный момент этот товар отсутствует. Вычислить математическое ожидание и дисперсию этой случайной величины. ";

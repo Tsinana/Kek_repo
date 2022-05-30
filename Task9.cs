@@ -7,6 +7,15 @@ namespace Kek
     class Task9
     {
         private string template;
+
+        public string GetAnsValue()
+        {
+            return "";
+        }
+        public string GetValue()
+        {
+            return template;
+        }
         public Task9()
         {
             var rand = new Random();
@@ -169,7 +178,7 @@ namespace Kek
             }
             x_be /= sum_N;
             double y_be = 0;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n-1; i++)
             {
                 y_be += Y[i] * N_igrikovoe[i];
             }

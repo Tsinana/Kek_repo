@@ -6,6 +6,10 @@ namespace Kek
     {
         private string template { get; set; }
 
+        public string GetAnsValue()
+        {
+            return "";
+        }
         public string GetValue()
         {
             return template;

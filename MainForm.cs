@@ -11,15 +11,14 @@ namespace Kek
     {
 
         private Word.Application _app;
-        //private Excel.Application ex;
+
 
         public MainForm()
         {
             InitializeComponent();
             _app = new Word.Application();
             _app.Visible = false;
-            //Excel.Application ex = new Excel.Application();
-            //ex.Visible = false;
+
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -109,7 +108,7 @@ namespace Kek
                     Nominate t = new Nominate(quantityVariant, data);
                     t.ShowDialog();
                     string str = data.GetValue();
-                    Regex myReg = new Regex("([А-Я]*[а-я]*[a-z]*[A-Z]*)");
+                    Regex myReg = new Regex("([А-Я]*[а-я]+)");
                     MatchCollection matches = myReg.Matches(str);
                     foreach (Match m in matches)
                     {
@@ -166,6 +165,8 @@ namespace Kek
             int quantityVariant = Convert.ToInt32(nQuantityVar.Value);
             
             //try
+           // {
+                //string title = folderTestTB.Text + @"\Варианты.docx";
             //{
                 Word.Document doc = _app.Documents.Add();
                 List<Variant> listVar = lv.GetListVar();
@@ -187,23 +188,41 @@ namespace Kek
                     doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
                 }
 
-                
+                string a = doc.FullName;
                 doc.Save();// =(
-                doc.Close();
+            //см ниже
+                string a2 = doc.FullName;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+               //см выше
+            doc.Close();
                 _app.Quit();
 
-                Excel.Application ex = new Excel.Application();
+                
+                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
                 ex.Visible = false;
+
                 Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
 
-                int ii = 1;
+                int ii = 2;
                 int jj = 1;
+
+                int quantityVar = listVar.Count;
+                int forDD = listVar[0].GetAnsValue().Count;
+                for (int i = 1; i <= forDD; i++)
+                {
+                    sheet.Cells[1, jj+1] = String.Format(Convert.ToString(jj));
+                    jj++;
+                }
+
+
                 foreach (Variant version in listVar)
                 {
-                    jj = 1;
-                    string name = version.GetName();
                     List<string> listStr = version.GetAnsValue();
+
+                    string name = version.GetName();
+                    sheet.Cells[ii, 1] = String.Format(name);
+
+                    jj = 2;
                     foreach (string str in listStr)
                     {
                         sheet.Cells[ii, jj] = String.Format(str);
@@ -215,6 +234,11 @@ namespace Kek
                 workBook.Save();
                 workBook.Close();
                 ex.Quit();
+            //}
+               // catch
+                //{
+//Close();
+                //}
             /*}
                 catch
                 {

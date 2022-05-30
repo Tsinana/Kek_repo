@@ -5,10 +5,10 @@ namespace Kek
     class Task2
     {
         private string template { get; set; }
-        private int y1;//
-        private int y2;//
-        private int y3;//
-        private int ally;//
+        private double y1;//
+        private double y2;//
+        private double y3;//
+        private double ally;//
         private double p1;//
         private double p2;//
         private double p3;//
@@ -19,6 +19,10 @@ namespace Kek
         private double who;//
         private double Probability;
 
+        public string GetAnsValue()
+        {
+            return Convert.ToString(Probability);
+        }
         public string GetValue()
         {
             return template;
@@ -28,14 +32,14 @@ namespace Kek
         {
             var rand = new Random();
 
-            int y1 = 5 * rand.Next(2, 8);
-            int y2 = 5 * rand.Next(2, 8);
-            int y3 = 5 * rand.Next(2, 8);
+            double y1 = 5 * rand.Next(2, 8);
+            double y2 = 5 * rand.Next(2, 8);
+            double y3 = 5 * rand.Next(2, 8);
             this.y1 = y1;
             this.y2 = y2;
             this.y3 = y3;
 
-            int ally = y1 + y2 + y3;
+            double ally = y1 + y2 + y3;
 
             double yp1 = y1 / ally;
             double yp2 = y2 / ally;
@@ -69,7 +73,7 @@ namespace Kek
                     PB = yp3 * p3;
                     break;
             }
-            double Probability = Math.Round((PB) / fullP,2);
+            Probability = Math.Round((PB) / fullP,2);
             string template;
             bool tackType = Convert.ToBoolean(rand.Next(0, 2));
             if (tackType)
