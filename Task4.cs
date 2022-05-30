@@ -57,6 +57,10 @@ namespace Kek
             char fis = Convert.ToChar(966);
             char Fi = Convert.ToChar(934);
             char men = Convert.ToChar(60);
+            double x = Math.Round(this.x, 4);
+            double npq = Math.Round(this.npq, 4);
+            double lev = Math.Round(this.lev, 4);
+            double prav = Math.Round(this.prav, 4);
             return Convert.ToString($"a) P(k) = {fis}({x})/{npq}   б){Fi}({xLap2})={Fi}({xLap1}) в){lev}{men}=k{men}{prav}");
         }
     }

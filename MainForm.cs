@@ -190,10 +190,10 @@ namespace Kek
 
                 doc.Save();// =(
             //см ниже
-                string a2 = doc.FullName;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                string a2 = doc.FullName;   
                 string b2 = doc.Name;
             //см выше
-            doc.Close();
+               doc.Close();
                 _app.Quit();
 
                 
@@ -210,7 +210,7 @@ namespace Kek
                 int forDD = listVar[0].GetAnsValue().Count;
                 for (int i = 1; i <= forDD; i++)
                 {
-                    sheet.Cells[1, jj+1] = String.Format(Convert.ToString(jj));
+                    sheet.Cells[1, jj+1] = String.Format(Convert.ToString("Задание "+jj));
                     jj++;
                 }
 
@@ -220,7 +220,7 @@ namespace Kek
                     List<string> listStr = version.GetAnsValue();
 
                     string name = version.GetName();
-                    sheet.Cells[ii, 1] = String.Format(name);
+                    sheet.Cells[ii, 1] = String.Format("Вариант "+name);
 
                     jj = 2;
                     foreach (string str in listStr)
@@ -231,13 +231,13 @@ namespace Kek
                     ii++;
                 
                 }
-            string a=a2.Replace(b2, "");
-            string b = b2.Replace(".docx","");
+                string a=a2.Replace(b2, "");
+                string b = b2.Replace(".docx","");
 
-            ex.Application.ActiveWorkbook.SaveAs(a + b+".XLSX", Type.Missing,
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            workBook.Close();
+                ex.Application.ActiveWorkbook.SaveAs(a + b+".XLSX", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                workBook.Close();
                 ex.Quit();
             //}
                // catch

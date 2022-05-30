@@ -14,6 +14,8 @@ namespace Kek
         private double x_be;
         public string GetAnsValue()
         {
+            double vib_sr_y = Math.Round(this.vib_sr_y, 4);
+            double vib_sr_x = Math.Round(this.vib_sr_x, 4);
             return $"y{(char)8339}-{y_be} = {r_bb}*{vib_sr_y}(y)/{vib_sr_x}(x)*(x-{x_be})";
         }
         public string GetValue()

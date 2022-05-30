@@ -13,7 +13,7 @@ namespace Kek
         private int bTo;//print
         public string GetAnsValue()
         {
-            return Convert.ToString($"M(x) = {mX}, D(x) = {dX}");
+            return Convert.ToString($"А = {a}, M(x) = {mX}, D(x) = {dX}");
         }
         public string GetValue()
         {
@@ -112,6 +112,7 @@ namespace Kek
                     trapezoidal_integral = 0;
                     for (int step = 0; step < n; step++)
                     {
+
                         double x1 = a + step * width;
                         double x2 = a + (step + 1) * width;
 

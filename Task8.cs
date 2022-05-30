@@ -12,6 +12,10 @@ namespace Kek
         private double nabl_znach;
         public string GetAnsValue()
         {
+            double vib_sr_sq = Math.Round(this.vib_sr_sq, 4);
+            double lev_gran = Math.Round(this.lev_gran, 4);
+            double prav_gran = Math.Round(this.prav_gran, 4); 
+            double nabl_znach = Math.Round(this.nabl_znach, 4);
             char chi = Convert.ToChar(935);
             char men = Convert.ToChar(60);
             return $"1.a){vib_sr} б) {vib_sr_sq} 2. {lev_gran}{men}m{men}{prav_gran} 3.{chi}наблюдаемое = {nabl_znach}";
