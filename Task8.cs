@@ -103,7 +103,7 @@ namespace Kek
                 Fi = Math.Exp((-Math.Pow(u, 2)) / 2) / Math.Sqrt(2 * Math.PI);
                 Nuu = ((sum_N * h) / vib_sr_sq) * Fi;
                 nabl_znach += (Math.Pow((N[i] - Nuu), 2) / Nuu);//часть ответа
-                //из таблицы как-то берется критические значения, если nabl_znach<krit_znach, то гипотезу принимают, иначе нет, не понял как с таблицей работать
+                
             }
             char aa = Convert.ToChar(945);
             char gamma = Convert.ToChar(947);

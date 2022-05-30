@@ -12,11 +12,13 @@ namespace Kek
 
         private Word.Application _app;
 
+
         public MainForm()
         {
             InitializeComponent();
             _app = new Word.Application();
             _app.Visible = false;
+
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -165,6 +167,7 @@ namespace Kek
             //try
            // {
                 //string title = folderTestTB.Text + @"\Варианты.docx";
+            //{
                 Word.Document doc = _app.Documents.Add();
                 List<Variant> listVar = lv.GetListVar();
 
@@ -230,13 +233,17 @@ namespace Kek
 
                 workBook.Save();
                 workBook.Close();
-
                 ex.Quit();
             //}
                // catch
                 //{
 //Close();
                 //}
+            /*}
+                catch
+                {
+                    Close();
+                }*/
         }
     }
 }
