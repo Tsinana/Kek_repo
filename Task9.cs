@@ -223,7 +223,18 @@ namespace Kek
             //подставляем в формулу значения y_be,r_bb,vib_sr_y,vib_sr_x,x_be
             string template;
             template = $"Найти выборочное уравнение прямой y{(char)8339}-{(char)375} = r(b)*{(char)1005}(y)/{(char)1005}(x)*(x-{(char)7819})  регрессии Y на Х по данной корреляционной таблице:";
-            this.template = template;
+
+
+            string str1 = "\n|   Y    |\t\t\tX\t\t\t|ny\t|";
+            string str2 = $"\n|   Y    |{x[0]}\t|{x[1]}\t|{x[2]}\t|{x[3]}\t|{x[4]}\t|{x[5]}\t|ny\t|";
+            string str3 = $"\n|   {Y[0]}   |{N_IXigrikovoe[0, 0]}\t|{N_IXigrikovoe[0, 1]}\t|-\t|-\t|-\t|-\t|{N_igrikovoe[0]}\t|";
+            string str4 = $"\n|   {Y[1]}   |-\t|{N_IXigrikovoe[1, 1]}\t|{N_IXigrikovoe[1, 2]}\t|-\t|-\t|-\t|{N_igrikovoe[1]}\t|";
+            string str5 = $"\n|   {Y[2]}   |-\t|-\t|{N_IXigrikovoe[2, 2]}\t|{N_IXigrikovoe[2, 3]}\t|{N_IXigrikovoe[2, 4]}\t|-\t|{N_igrikovoe[2]}\t|";
+            string str6 = $"\n|   {Y[3]}   |-\t|-\t|{N_IXigrikovoe[3, 2]}\t|{N_IXigrikovoe[3, 3]}\t|{N_IXigrikovoe[3, 4]}\t|-\t|{N_igrikovoe[3]}\t|";
+            string str7 = $"\n|   {Y[4]}   |-\t|-\t|-\t|{N_IXigrikovoe[4, 3]}\t|{N_IXigrikovoe[4, 4]}\t|{N_IXigrikovoe[4, 5]}\t|{N_igrikovoe[4]}\t|";
+            string str8 = $"\n|   nx   |{N_iksovoe[0]}\t|{N_iksovoe[1]}\t|{N_iksovoe[2]}\t|{N_iksovoe[3]}\t|{N_iksovoe[4]}\t|{N_iksovoe[5]}\t|{sum_N}\t|";
+
+            this.template = template+ str1+ str2+str3+ str4+ str5+str6+ str7+ str8;
         }
     }
 }
