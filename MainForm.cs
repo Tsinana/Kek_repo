@@ -11,15 +11,12 @@ namespace Kek
     {
 
         private Word.Application _app;
-        private Excel.Application ex;
 
         public MainForm()
         {
             InitializeComponent();
             _app = new Word.Application();
             _app.Visible = false;
-            Excel.Application ex = new Excel.Application();
-            ex.Visible = false;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -109,7 +106,7 @@ namespace Kek
                     Nominate t = new Nominate(quantityVariant, data);
                     t.ShowDialog();
                     string str = data.GetValue();
-                    Regex myReg = new Regex("([А-Я]*[а-я]*[a-z]*[A-Z]*)");
+                    Regex myReg = new Regex("([А-Я]*[а-я]+)");
                     MatchCollection matches = myReg.Matches(str);
                     foreach (Match m in matches)
                     {
@@ -193,16 +190,32 @@ namespace Kek
                 doc.Close();
                 _app.Quit();
 
+                Excel.Application ex = new Microsoft.Office.Interop.Excel.Application();
+                ex.Visible = false;
+
                 Excel.Workbook workBook = ex.Workbooks.Add();
                 Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
 
-                int ii = 0;
-                int jj = 0;
+                int ii = 2;
+                int jj = 1;
+
+                int quantityVar = listVar.Count;
+                int forDD = listVar[0].GetAnsValue().Count;
+                for (int i = 1; i <= forDD; i++)
+                {
+                    sheet.Cells[1, jj+1] = String.Format(Convert.ToString(jj));
+                    jj++;
+                }
+
+
                 foreach (Variant version in listVar)
                 {
-                    jj = 0;
-                    string name = version.GetName();
                     List<string> listStr = version.GetAnsValue();
+
+                    string name = version.GetName();
+                    sheet.Cells[ii, 1] = String.Format(name);
+
+                    jj = 2;
                     foreach (string str in listStr)
                     {
                         sheet.Cells[ii, jj] = String.Format(str);

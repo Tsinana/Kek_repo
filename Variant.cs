@@ -112,17 +112,59 @@ namespace Kek
         public List<string> GetAnsValue()
         {
             List<string> listStr = new List<string>();
-
-
             foreach (Task1 a in ListTask1)
             {
                 string ans = a.GetAnsValue();
                 listStr.Add(ans);
             }
 
-            //...
+            foreach (Task2 a in ListTask2)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
 
+            foreach (Tast3 a in ListTast3)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
 
+            foreach (Task4 a in ListTask4)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            foreach (Task5 a in ListTask5)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            foreach (Task6 a in ListTask6)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            foreach (Task7 a in ListTask7)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            foreach (Task8 a in ListTask8)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
+
+            foreach (Task9 a in ListTask9)
+            {
+                string ans = a.GetAnsValue();
+                listStr.Add(ans);
+            }
             return listStr;
         }
 
@@ -178,13 +220,13 @@ namespace Kek
                 value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
                 idx++;
             }
-            /*
+            
             foreach (Task9 a in ListTask9)
             {
                 value = value + "          " +idx + ". " + a.GetValue() + "\n\n";
                 idx++;
             }
-            */
+            
             return value;
         }
     }

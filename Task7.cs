@@ -13,6 +13,10 @@ namespace Kek
         private int b;//print
         private int siG;//print
 
+        public string GetAnsValue()
+        {
+            return Convert.ToString($"{ans1}, {ans2}");
+        }
         public string GetValue()
         {
             return template;

@@ -17,6 +17,10 @@ namespace Kek
         {
             return template;
         }
+        public string GetAnsValue()
+        {
+            return Convert.ToString(P);
+        }
 
         public Tast3(int a)
         {

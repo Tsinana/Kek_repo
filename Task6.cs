@@ -11,7 +11,10 @@ namespace Kek
         private double qQ;//ans
         private int aFrom;//print
         private int bTo;//print
-
+        public string GetAnsValue()
+        {
+            return Convert.ToString($"M(x) = {mX}, D(x) = {dX}");
+        }
         public string GetValue()
         {
             return template;
