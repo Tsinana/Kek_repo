@@ -188,11 +188,11 @@ namespace Kek
                     doc.Paragraphs[i].Range.Paragraphs.SpaceAfter = 0;
                 }
 
-                string a = doc.FullName;
                 doc.Save();// =(
             //см ниже
                 string a2 = doc.FullName;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-               //см выше
+                string b2 = doc.Name;
+            //см выше
             doc.Close();
                 _app.Quit();
 
@@ -229,10 +229,14 @@ namespace Kek
                         jj++;
                     }
                     ii++;
+                
                 }
-
-                workBook.Save();
-                workBook.Close();
+            string a=a2.Replace(b2, "");
+            //workBook.SaveAs(a+"answer.xml");
+            ex.Application.ActiveWorkbook.SaveAs(a + "answ.XLSX", Type.Missing,
+Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
+Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            workBook.Close();
                 ex.Quit();
             //}
                // catch
