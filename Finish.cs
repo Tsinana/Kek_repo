@@ -10,7 +10,7 @@ namespace Kek
             InitializeComponent();
         }
 
-        private void bReset_Click(object sender, EventArgs e)
+        private void BReset_Click(object sender, EventArgs e)
         {
             Close();
         }

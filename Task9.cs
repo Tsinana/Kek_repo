@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kek
 {
@@ -219,11 +217,9 @@ namespace Kek
             this.r_bb = r_bb;
             double perv = sum_N * x_be * y_be;
             double vtor = sum_N * vib_sr_x * vib_sr_y;
-            r_bb =Math.Round((r_bb - perv) / vtor,4);
-            //подставляем в формулу значения y_be,r_bb,vib_sr_y,vib_sr_x,x_be
+            _ = Math.Round((r_bb - perv) / vtor,4);
             string template;
             template = $"Найти выборочное уравнение прямой y{(char)8339}-{(char)375} = r(b)*{(char)1005}(y)/{(char)1005}(x)*(x-{(char)7819})  регрессии Y на Х по данной корреляционной таблице:";
-
 
             string str1 = "\n|   Y    |\t\t\tX\t\t\t|ny\t|";
             string str2 = $"\n|   Y    |{x[0]}\t|{x[1]}\t|{x[2]}\t|{x[3]}\t|{x[4]}\t|{x[5]}\t|ny\t|";

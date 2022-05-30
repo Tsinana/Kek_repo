@@ -108,7 +108,6 @@ namespace Kek
             return name;
         }
 
-
         public List<string> GetAnsValue()
         {
             List<string> listStr = new List<string>();

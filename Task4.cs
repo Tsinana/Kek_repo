@@ -12,7 +12,6 @@ namespace Kek
         private double lev;
         private double prav;
 
-
         public string GetValue()
         {
             return template;

@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Kek
 {
     class Tast3

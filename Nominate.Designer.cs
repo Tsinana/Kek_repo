@@ -81,7 +81,7 @@ namespace Kek
             this.bReset.TabIndex = 35;
             this.bReset.Text = "Reset";
             this.bReset.UseVisualStyleBackColor = false;
-            this.bReset.Click += new System.EventHandler(this.bReset_Click);
+            this.bReset.Click += new System.EventHandler(this.BReset_Click);
             // 
             // bOk
             // 
@@ -92,7 +92,7 @@ namespace Kek
             this.bOk.TabIndex = 34;
             this.bOk.Text = "Ok";
             this.bOk.UseVisualStyleBackColor = false;
-            this.bOk.Click += new System.EventHandler(this.bOk_Click);
+            this.bOk.Click += new System.EventHandler(this.BOk_Click);
             // 
             // labelFail
             // 

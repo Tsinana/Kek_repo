@@ -51,7 +51,7 @@ namespace Kek
             this.bReset.TabIndex = 34;
             this.bReset.Text = "Закрыть";
             this.bReset.UseVisualStyleBackColor = false;
-            this.bReset.Click += new System.EventHandler(this.bReset_Click);
+            this.bReset.Click += new System.EventHandler(this.BReset_Click);
             // 
             // Finish
             // 
